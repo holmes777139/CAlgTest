@@ -15,6 +15,10 @@ void BubbleSortLittle(int* p, int size)
     BubbleSortLittle(++p, --size);
 }
 
+
+
+
+
 void BubbleSortBig(int* p, int size)
 {
     int temp;
