@@ -1,51 +1,13 @@
 #include <stdio.h>
 
-void BubbleSortLittle(int* p, int size)
+void QuickSort(int* p, int size)
 {
-    int temp;
 
-    if(size == 1){
-        return;
-    }
-    if(*p > *(p+1)){
-        temp = *p;
-        *p = *(p+1);
-        *(p+1) = temp;
-    }
-    BubbleSortLittle(++p, --size);
 }
-
-
-
-
-
-void BubbleSortBig(int* p, int size)
-{
-    int temp;
-
-    if(size == 1){
-        return;
-    }
-    if(*p < *(p+1)){
-        temp = *p;
-        *p = *(p+1);
-        *(p+1) = temp;
-    }
-    BubbleSortBig(++p, --size);
-}
-
 void Sort(int* p, int size )
 {
-    if(size == 1){
-        printf("%d ", *p);
-        return;
-    }
-    BubbleSortBig(p, size);
-    Sort(p, --size);
-    printf("%d ", *(p + size));
+    QuickSort(p, size);
 }
-
-
 int main(void)
 {
     int* p;
