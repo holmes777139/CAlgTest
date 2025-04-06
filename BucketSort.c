@@ -1,17 +1,15 @@
 #include <stdio.h>
-
-void BucketSort(int* p, int size)
+void BucketSort(int* bucket, int bucketSize, int* p, int size)
 {
-    int bucket[10] = {0};
-    for (int i = 1; i < size; i++)
+    for (int i = 0; i < size; i++)
     {
-        bucket[p[i]]++;
+        bucket[*(p + i)]++;
     }
 
-    for(int i = 0; i < 10; i++)
+    for(int i = 0; i < bucketSize; i++)
     {
-        if(bucket[i] != 0){
-            for(int j = 0; j < bucket[i]; j++)
+        if(*(bucket + i) != 0){
+            //for(int j = 0; j < *(bucket + i); j++)
             {
                 printf("%d ", i);
             }           
@@ -21,9 +19,8 @@ void BucketSort(int* p, int size)
 }
 int main(void)
 {
-    int* p;
-    int array[] = {5,3,8,9,2,3,4,5,9,4,1};
-    p = array;
-    BucketSort(p, sizeof(array)/sizeof(array[0]));
+    int bucket[10] = {0};
+    int array[] = {5,3,8,9,2,3,0,0,4,5,9,4,1,4,5,6};
+    BucketSort(bucket, 10,array,sizeof(array)/sizeof(array[0]));
     return 0;
 }
