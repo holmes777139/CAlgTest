@@ -43,20 +43,20 @@ int AudioDelay(AudioDelayer* pAd, uint32_t delayMs);
 void AudioDelayerReset(AudioDelayer* pAd);
 void BareMetalTaskCreater(uint32_t delayMs,void(*fp_CallBack)(void),bool isPeriod);
 
-#define NON_BLOCKING_WAIT(ms,ad)  do {  											\
-	if(ad == NULL) return;															\
+#define NON_BLOCKING_WAIT(ms,ad)  do {  						\
+	if(ad == NULL) return;								\
     if((AudioDelay(ad, ms) & DELAYER_COUNTING_FLAG) == DELAYER_COUNTING_FLAG) {   	\
-        return;                                                 					\
-    }			                                                    				\
-	AudioDelayerReset(ad);                       									\
+        return;                                                 			\
+    }			                                                    		\
+	AudioDelayerReset(ad);                       					\
 } while(0)
 
-#define NON_BLOCKING_WAIT_RET(ms,ad)  do {  										\
-	if(ad == NULL) return 0;														\
+#define NON_BLOCKING_WAIT_RET(ms,ad)  do {  						\
+	if(ad == NULL) return 0;							\
     if((AudioDelay(ad, ms) & DELAYER_COUNTING_FLAG) == DELAYER_COUNTING_FLAG) {   	\
-        return 0;                                                 					\
-    }			                                                    				\
-	AudioDelayerReset(ad);                       									\
+        return 0;                                                 			\
+    }			                                                    		\
+	AudioDelayerReset(ad);                       					\
 } while(0)
 
 #endif
